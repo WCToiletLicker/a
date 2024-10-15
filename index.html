@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Audio and image on Click with Cookie Consent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- Add a image element to the page with muted attribute set to true -->
+  <image id="image" src="tubgirl.jpg"
+
+  <!-- Add an audio element to the page with muted attribute set to true -->
+  <audio id="audio" src="jeff.mp4" muted></audio>
+
+  <!-- Add a div for the cookie consent popup -->
+  <div id="cookie-consent-popup">
+    <div class="popup-content">
+      <p>This website uses cookies to enhance your experience. By continuing to use this website, you agree to our use of cookies.</p>
+      <button id="accept-cookies">Accept</button>
+      <button id="read-more-cookies">Read More</button>
+    </div>
+  </div>
+
+  <!-- Include the JavaScript file -->
+  <script>
+  // Get the image and audio elements
+const image = document.getElementById('image');
+const audio = document.getElementById('audio');
+
+// Get the cookie consent popup and buttons
+const cookieConsentPopup = document.getElementById('cookie-consent-popup');
+const acceptCookiesButton = document.getElementById('accept-cookies');
+const readMoreCookiesButton = document.getElementById('read-more-cookies');
+
+// Function to handle cookie consent acceptance
+function handleCookieConsent() {
+  // Remove the cookie consent popup
+  cookieConsentPopup.style.display = 'none';
+
+  // Unmute the audio element
+  audio.muted = false;
+
+  // Add an event listener to the document that listens for clicks
+  document.addEventListener('click', function(event) {
+    // Play the audio file
+    audio.play();
+  });
+}
+
+// Add event listeners to both buttons
+acceptCookiesButton.addEventListener('click', handleCookieConsent);
+readMoreCookiesButton.addEventListener('click', handleCookieConsent);
+  </script>
+<style>
+/* Add some basic styling to make the page look decent */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+button, a {
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover, a:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the cookie consent popup */
+#cookie-consent-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* Make the popup opaque */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Make sure the popup is on top of everything */
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 90%; /* Make the popup content responsive */
+}
+
+#accept-cookies {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px; /* Add margin to separate buttons */
+}
+
+#accept-cookies:hover {
+  background-color: #3e8e41;
+}
+
+#read-more-cookies {
+  background-color: #e5e5e5; /* light gray color */
+  color: #333; /* dark gray text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px; /* Add margin to separate buttons */
+}
+
+#read-more-cookies:hover {
+  background-color: #d9d9d9; /* slightly darker light gray color on hover */
+}
+
+/* Style the image element */
+#image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Add media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+  #image {
+    height: 50vh;
+  }
+  .popup-content {
+    padding: 10px;
+  }
+  button, a {
+    margin: 10px;
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 
